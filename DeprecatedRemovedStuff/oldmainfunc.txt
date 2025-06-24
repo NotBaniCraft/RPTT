@@ -1,0 +1,24 @@
+def main():
+    # Print current settings
+    print("Current registry settings:")
+    registry = read_registry()
+    for key, value in registry.items():
+        print(f"{key} = {value}")
+
+    # FirstTimeUse check
+    first_time = get_registry("FirstTimeUse")
+    if first_time == "True":
+        print("This is your first time using the program!")
+        set_registry("FirstTimeUse", "False")
+
+    # LoadingMode check
+    loading_mode = get_registry("LoadingMode")
+    if loading_mode == "True":
+        print("Loading mode is enabled!")
+
+    # goofy check
+    goofy = get_registry("goofy")
+    if goofy == "yes truly":
+        print("we got goofy ahh")
+
+    print("Registry updated!")

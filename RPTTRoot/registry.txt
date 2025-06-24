@@ -1,0 +1,3 @@
+EndPhraseSetting=EOF
+FirstTimeUse=False
+HWGPUName=rtx pro
