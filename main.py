@@ -14,9 +14,11 @@ from customfunc import info
 from customfunc import error
 from registryfuncs import get_registry
 from registryfuncs import set_registry
-from cmdprompt import cmdprompt # type: ignore
+from setup import download
+
 
 def onos():
+    from cmdprompt import cmdprompt # type: ignore
     cmdprompt()  # Assuming cmdprompt has a function named cmdprompt
 
 def main():
@@ -25,14 +27,21 @@ def main():
         print("""Welcome to RPTT!
 Version: a1
 Would you like to install the OS? (Y/N)""")
-        installdec = input()
+        installdec = input().upper()
         if installdec == "Y":
-            info("Initializing registries...")
-            set_registry("FirstTimeUse", "False")
             info("Creating directories...")
             os.makedirs("RPTTRoot", exist_ok=True)
+            info("RPTTRoot dir created")
             os.makedirs(os.path.join("RPTTRoot", "SystemApps"), exist_ok=True)
+            info("RPTTRoot/SystemApps dir created")
             os.makedirs(os.path.join("RPTTRoot", "Apps"), exist_ok=True)
+            info("RPTTRoot/Apps dir created")
+            info("Downloading files...")
+            download(["RPTTRoot/SystemApps/cmdprompt.py", "RPTTRoot/SystemApps"])
+            if input("Would you like to download rock paper scissors? (Y/N)").upper() == "Y":
+                download(["RPTTRoot/Apps/rps.py", "RPTTRoot/Apps"])
+            info("Initializing registries...")
+            set_registry("FirstTimeUse", "False")
             print("Booting to RPTT...")
             onos()
         elif installdec == "N":
@@ -45,7 +54,6 @@ Would you like to install the OS? (Y/N)""")
         onos()
     elif FirstTimeUse is None:
         error("Critical files or configurations weren't found.")
-        info("Creating registry file...")
         info("Initializing registries...")
         set_registry("FirstTimeUse", "True")
         print("Rebooting...")

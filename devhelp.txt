@@ -41,3 +41,6 @@ write_registry(registry: string) - honestly idk what it does, but set_registry u
 set_registry(key: string, value: string) - Makes a new value or updates one in the registry. -- key: The name of the registry key you would like to make/update; value: The value to change the key's value to.
 get_registry(key: string) - Checks if a value exists in the registry, and returns an error if doesn't. -- key: The name of the registry key you would like to check if exists.
 delete_registry(key: string) - Deletes a registry key from the registry. -- key: The name of the registry key you would like to delete.
+
+setup.py functionality:
+download(files: list, destination=None: string) - Downloads files from Github repo. -- files: A list for what files to download; destination: By default, it's to None, which means it will download to the directory the file is running in. If set to a directory, it will download to that directory.

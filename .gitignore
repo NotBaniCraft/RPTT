@@ -1,0 +1,16 @@
+# python junk
+*.pyc
+**/__pycache__/
+
+# pyinstaller build files
+dist/
+build/
+*.spec
+
+# secrets and config
+.env
+secrets.txt
+
+# ide files (optional)
+.vscode/
+.idea/
