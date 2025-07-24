@@ -7,6 +7,8 @@ if hasattr(sys, '_MEIPASS'):
     base_path = sys._MEIPASS
 else:
     base_path = os.path.dirname(__file__)
+    sys.path.append(os.path.join(base_path, 'RPTTRoot', 'SystemApps'))
+    sys.path.append(os.path.join(base_path, 'RPTTRoot', 'Apps'))
 from customfunc import warn
 from customfunc import info
 from customfunc import error
