@@ -6,9 +6,7 @@ import time
 if hasattr(sys, '_MEIPASS'):
     base_path = sys._MEIPASS
 else:
-    base_path = os.path.dirname(__file__)
-sys.path.append(os.path.join(base_path, 'RPTTRoot', 'SystemApps'))
-sys.path.append(os.path.join(base_path, 'RPTTRoot', 'Apps'))
+    base_path = os.path.dirname(__file__)a
 from customfunc import warn
 from customfunc import info
 from customfunc import error
@@ -33,8 +31,10 @@ Would you like to install the OS? (Y/N)""")
             os.makedirs("RPTTRoot", exist_ok=True)
             info("RPTTRoot dir created")
             os.makedirs(os.path.join("RPTTRoot", "SystemApps"), exist_ok=True)
+            sys.path.append(os.path.join(base_path, 'RPTTRoot', 'SystemApps'))
             info("RPTTRoot/SystemApps dir created")
             os.makedirs(os.path.join("RPTTRoot", "Apps"), exist_ok=True)
+            sys.path.append(os.path.join(base_path, 'RPTTRoot', 'Apps'))
             info("RPTTRoot/Apps dir created")
             info("Downloading files...")
             download(["RPTTRoot/SystemApps/cmdprompt.py"], "RPTTRoot/SystemApps")
