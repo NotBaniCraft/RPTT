@@ -6,7 +6,7 @@ import time
 if hasattr(sys, '_MEIPASS'):
     base_path = sys._MEIPASS
 else:
-    base_path = os.path.dirname(__file__)a
+    base_path = os.path.dirname(__file__)
 from customfunc import warn
 from customfunc import info
 from customfunc import error
