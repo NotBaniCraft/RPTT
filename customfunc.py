@@ -23,7 +23,7 @@ def supports_colors():
 
     # Otherwise, test for color support by trying to print a color
     try:
-        sys.stdout.write("\033[38;2;255;0;0mTest\033[0m")  # Test for true color
+        sys.stdout.write("\033[38;2;255;0;0m\033[0m")  # Test for true color
         return True
     except Exception:
         return False
